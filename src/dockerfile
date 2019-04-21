@@ -1,0 +1,13 @@
+FROM golang:1.11
+
+LABEL maintainer="Jen Fru <jrufox@gmail.com>"
+
+WORKDIR $GOPATH/src/hello
+
+COPY . .
+
+RUN go get -d -v ./...
+
+RUN go install -v ./...
+
+CMD ["hello"]
